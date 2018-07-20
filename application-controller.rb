@@ -4,7 +4,7 @@ require_relative 'models/questions'
 
 class MyApp < Sinatra::Base
 
- get'/' do
+ get '/' do
   erb :index
  end
 
@@ -12,18 +12,7 @@ class MyApp < Sinatra::Base
    erb :questions
  end
 
- # get '/breakfast.erb' do
- #   erb :breakfast
- # end
- #
- # get '/snack' do
- #   erb :snack
- # end
- #
- # get '/dessert' do
- #   erb :dessert
- # end
-
+ 
  post  '/results' do
    answers = params.values
    @total= 0
@@ -32,13 +21,26 @@ class MyApp < Sinatra::Base
    end
    puts @total
 
-   @cookie = cookie_chooser(@total)
-   if @cookie == "cranberry"
-     erb :cranberry
-   elsif @cookie == "trailmix"
-     erb :trailmix
-   elsif @cookie == "chocolatey"
-     erb :chocolatey
+    @anything = character_chooser(@total)
+   if @anything == "Neville Longbottom"
+     erb :Neville_Longbottom
+   elsif @anything == "Bellatrix Lestrange"
+     erb :Bellatrix_Lestrange
+   elsif @anything == "Aberforth Dumbledore"
+     erb :Aberforth_Dumbledore
+     elsif @anything == "Draco Malfoy"
+     erb :Draco_Malfoy
+     elsif @anything == "Luna Lovegood"
+     erb :LunaLovegood
+     elsif @anything == "Severus Snape"
+     erb :Severus_Snape
+     elsif @anything == "Dolores Umbridge"
+     erb :Dolores_Umbridge
+     elsif @anything == "Voldemort"
+     erb :Voldemort
+     elsif @anything == "Ginny Weasley"
+     erb :Ginny_Weasley
   end
 end
+
 end
